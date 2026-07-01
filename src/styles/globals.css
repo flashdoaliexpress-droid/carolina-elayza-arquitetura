@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-cream text-olive font-body;
+  }
+
+  .font-display {
+    font-variation-settings: "opsz" 96, "SOFT" 50, "WONK" 0;
+  }
+
+  .font-display em,
+  .font-display .accent {
+    font-variation-settings: "opsz" 96, "SOFT" 100, "WONK" 1;
+  }
+
+  ::selection {
+    background-color: #697159;
+    color: #FBF6F0;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
