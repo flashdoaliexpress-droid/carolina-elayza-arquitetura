@@ -3,6 +3,9 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Home } from '@/pages/Home';
 import { Projeto } from '@/pages/Projeto';
+import { Blog } from '@/pages/Blog';
+import { BlogPost } from '@/pages/BlogPost';
+import { Dicionario } from '@/pages/Dicionario';
 
 export default function App() {
   return (
@@ -13,6 +16,9 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/projetos/:slug" element={<Projeto />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/dicionario" element={<Dicionario />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>

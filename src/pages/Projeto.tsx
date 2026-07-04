@@ -101,6 +101,28 @@ export function Projeto() {
                 alt={(i) => `${projeto.titulo}, render ${i + 1}`}
               />
             ) : null}
+
+            {projeto.videoTour ? (
+              <figure className="flex flex-col gap-4">
+                <figcaption className="font-mono text-label text-sage tracking-[0.3em] uppercase">
+                  Vídeo tour
+                </figcaption>
+                <video
+                  controls
+                  preload="metadata"
+                  playsInline
+                  className="w-full h-auto bg-ink"
+                  src={projeto.videoTour}
+                >
+                  Seu navegador não suporta reprodução de vídeo.
+                </video>
+                {projeto.videoTourLegenda ? (
+                  <p className="font-body text-caption italic text-ink-muted">
+                    {projeto.videoTourLegenda}
+                  </p>
+                ) : null}
+              </figure>
+            ) : null}
           </div>
         </div>
 

@@ -1,5 +1,6 @@
 import casaRaizesCapa from '@/Projetos/Casa Raízes/Casa raizes Capa.png';
 import igrejaCapa from '@/Projetos/Igreja/Igreja Capa.png';
+import igrejaVideo from '@/Projetos/Igreja/Nova Sede da Igreja Assembléia de Deus Missão Fortaleza.mp4?url';
 import quialterasCapa from '@/Projetos/Quialteras/Quialteras Capa.png';
 
 export type ProjetoSlug = 'casa-raizes' | 'igreja-assembleia-de-deus-missao' | 'quialteras';
@@ -20,6 +21,8 @@ export interface Projeto {
   capa: string;
   renders: string[];
   pranchas: string[];
+  videoTour?: string;
+  videoTourLegenda?: string;
 }
 
 function toOrdered(glob: Record<string, unknown>): string[] {
@@ -45,15 +48,30 @@ const quialterasJpegGlob = import.meta.glob('/src/Projetos/Quialteras/Render *.j
 });
 
 const casaRaizesRenders = toOrdered(casaRaizesGlob);
-const igrejaRenders = toOrdered({ ...igrejaPngGlob, ...igrejaJpegGlob });
+const igrejaAllRenders = toOrdered({ ...igrejaPngGlob, ...igrejaJpegGlob });
 const quialterasAllRenders = toOrdered({ ...quialterasPngGlob, ...quialterasJpegGlob });
+
+// Ordem narrativa da Igreja: fachada → nave (o coração do projeto) → circulação →
+// cobertura/exteriores → salão anexo → salas de aula → administrativo → banheiros.
+const IGREJA_ORDEM = [
+  14, 7, 8, 13, 12,
+  16, 21,
+  3, 6, 4, 5,
+  22, 25, 23,
+  15, 18, 24, 19, 20, 17,
+  9, 10, 11,
+  1, 2,
+];
+const igrejaRenders = IGREJA_ORDEM
+  .map((n) => igrejaAllRenders[n - 1])
+  .filter((src): src is string => Boolean(src));
 
 // Quialteras: Render 19–23 são pranchas técnicas; o restante são renders visuais.
 const quialterasPranchas = quialterasAllRenders.slice(18, 23);
 const quialterasRenders = [
   ...quialterasAllRenders.slice(0, 18),
   ...quialterasAllRenders.slice(23),
-];
+].reverse();
 
 export const projetos: Projeto[] = [
   {
@@ -97,6 +115,8 @@ export const projetos: Projeto[] = [
     capa: igrejaCapa,
     renders: igrejaRenders,
     pranchas: [],
+    videoTour: igrejaVideo,
+    videoTourLegenda: 'Tour pela nova sede da Igreja Assembleia de Deus Missão',
   },
   {
     slug: 'quialteras',

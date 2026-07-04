@@ -1,26 +1,43 @@
 import { useEffect, useState } from 'react';
 import hero1 from '@/assets/images/hero-1.webp';
 import hero2 from '@/assets/images/hero-2.webp';
+import hero1Mobile from '@/assets/images/hero-1 Mobile.png';
+import hero2Mobile from '@/assets/images/hero-2 Mobile.png';
 
-const HERO_IMAGES = [hero1, hero2];
+const HERO_DESKTOP = [hero1, hero2];
+const HERO_MOBILE = [hero1Mobile, hero2Mobile];
 const ROTATION_MS = 5000;
+const MOBILE_QUERY = '(max-width: 767px)';
 
 export function Hero() {
   const [index, setIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' ? window.matchMedia(MOBILE_QUERY).matches : false,
+  );
+
+  useEffect(() => {
+    const mql = window.matchMedia(MOBILE_QUERY);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mql.addEventListener('change', handler);
+    setIsMobile(mql.matches);
+    return () => mql.removeEventListener('change', handler);
+  }, []);
 
   useEffect(() => {
     const id = window.setInterval(() => {
-      setIndex((i) => (i + 1) % HERO_IMAGES.length);
+      setIndex((i) => (i + 1) % HERO_DESKTOP.length);
     }, ROTATION_MS);
     return () => window.clearInterval(id);
   }, []);
+
+  const images = isMobile ? HERO_MOBILE : HERO_DESKTOP;
 
   return (
     <section
       id="hero"
       className="relative w-full h-screen min-h-[600px] flex flex-col justify-end overflow-hidden"
     >
-      {HERO_IMAGES.map((src, i) => (
+      {images.map((src, i) => (
         <div
           key={src}
           className={`absolute inset-0 z-0 bg-cover bg-center transition-opacity duration-[1500ms] ${

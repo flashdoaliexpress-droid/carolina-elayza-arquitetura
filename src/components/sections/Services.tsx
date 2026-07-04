@@ -51,16 +51,9 @@ export function Services() {
                 {title}
               </h3>
 
-              <p className="font-body text-body-md text-terracotta/80 mb-10 flex-grow">
+              <p className="font-body text-body-md text-terracotta/80 flex-grow">
                 {description}
               </p>
-
-              <a
-                href="#"
-                className="self-start font-mono text-label text-terracotta uppercase tracking-[0.2em] border-b border-terracotta pb-1 transition-colors duration-150 hover:text-olive hover:border-olive"
-              >
-                Saiba mais →
-              </a>
             </article>
           ))}
         </div>

@@ -1,4 +1,4 @@
-import { Feather } from '@/components/ui/Feather';
+import { Pupa } from '@/components/ui/Pupa';
 import { values } from '@/data/values';
 import portrait from '@/assets/images/portrait.webp';
 
@@ -8,11 +8,11 @@ export function About() {
       id="about"
       className="relative w-full bg-cream pt-32 md:pt-40 pb-24 md:pb-32 px-m-mobile md:px-m-desktop overflow-hidden"
     >
-      <Feather
-        className="absolute -bottom-[5%] -right-[5%] w-[40vw] h-auto text-terracotta opacity-[0.14] -rotate-12 pointer-events-none z-0"
+      <Pupa
+        className="absolute top-0 right-[4%] md:right-[8%] w-[18vw] max-w-[160px] h-auto text-terracotta opacity-[0.18] -rotate-6 pointer-events-none z-0"
       />
-      <Feather
-        className="absolute top-[5%] right-[15%] w-[22vw] h-auto text-olive opacity-[0.20] rotate-[20deg] pointer-events-none z-0 hidden md:block"
+      <Pupa
+        className="absolute -bottom-[6%] -right-[6%] w-[36vw] h-auto text-olive opacity-[0.10] rotate-3 pointer-events-none z-0 hidden md:block"
       />
 
       <div className="relative z-10 max-w-[1440px] mx-auto grid grid-cols-4 md:grid-cols-12 gap-gutter mt-16 md:mt-24">

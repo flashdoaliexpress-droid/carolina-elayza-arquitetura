@@ -1,4 +1,4 @@
-import { Feather } from '@/components/ui/Feather';
+import { Pupa } from '@/components/ui/Pupa';
 import portrait from '@/assets/images/IMAGEM CTA FINAL.png';
 
 export function Contato() {
@@ -80,8 +80,8 @@ export function Contato() {
           </div>
         </div>
 
-        <Feather
-          className="absolute bottom-10 right-10 md:bottom-12 md:right-12 w-[110px] md:w-[160px] h-auto text-terracotta opacity-25 -rotate-6 pointer-events-none hidden sm:block"
+        <Pupa
+          className="absolute top-0 right-6 md:right-10 w-[100px] md:w-[140px] h-auto text-terracotta opacity-[0.22] -rotate-3 pointer-events-none hidden sm:block"
         />
       </div>
     </section>

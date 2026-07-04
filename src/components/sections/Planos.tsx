@@ -152,17 +152,6 @@ export function Planos() {
         ))}
       </div>
 
-      <div className="max-w-[720px] mx-auto px-m-mobile md:px-0 mt-24 md:mt-32 text-center">
-        <p className="font-body text-body-md text-ink-muted">
-          Não sabe qual faz sentido para você?{' '}
-          <a
-            href="#contato"
-            className="font-mono text-label uppercase tracking-[0.25em] text-terracotta underline underline-offset-4 decoration-terracotta hover:decoration-olive hover:text-olive transition-colors"
-          >
-            Fale com a Carol
-          </a>
-        </p>
-      </div>
     </section>
   );
 }
