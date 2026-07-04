@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Pupa } from '@/components/ui/Pupa';
+import { Feather } from '@/components/ui/Feather';
 import { avaliacoes } from '@/data/avaliacoes';
 
 const AUTO_ADVANCE_MS = 9000;
@@ -24,8 +24,8 @@ export function Avaliacoes() {
       aria-labelledby="avaliacoes-heading"
       className="relative w-full bg-cream border-t border-hairline overflow-hidden py-24 md:py-32"
     >
-      <Pupa
-        className="absolute top-0 right-[4%] md:right-[8%] w-[14vw] max-w-[140px] h-auto text-olive opacity-[0.12] rotate-6 pointer-events-none"
+      <Feather
+        className="absolute -bottom-[10%] -left-[8%] w-[30vw] h-auto text-olive opacity-[0.08] rotate-12 pointer-events-none"
       />
 
       <header className="px-m-mobile md:px-m-desktop mb-16 md:mb-20">

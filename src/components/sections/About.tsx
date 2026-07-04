@@ -9,10 +9,7 @@ export function About() {
       className="relative w-full bg-cream pt-32 md:pt-40 pb-24 md:pb-32 px-m-mobile md:px-m-desktop overflow-hidden"
     >
       <Pupa
-        className="absolute top-0 right-[4%] md:right-[8%] w-[18vw] max-w-[160px] h-auto text-terracotta opacity-[0.18] -rotate-6 pointer-events-none z-0"
-      />
-      <Pupa
-        className="absolute -bottom-[6%] -right-[6%] w-[36vw] h-auto text-olive opacity-[0.10] rotate-3 pointer-events-none z-0 hidden md:block"
+        className="hidden md:block absolute top-32 right-0 h-[50%] w-auto max-w-none opacity-60 pointer-events-none z-0"
       />
 
       <div className="relative z-10 max-w-[1440px] mx-auto grid grid-cols-4 md:grid-cols-12 gap-gutter mt-16 md:mt-24">
@@ -31,12 +28,16 @@ export function About() {
           </p>
         </div>
 
-        <div className="col-span-4 md:col-span-7 flex flex-col justify-center pt-8 md:pt-0 md:pl-8">
-          <span className="font-mono text-label text-terracotta tracking-[0.25em] mb-6 block uppercase">
+        <div className="relative col-span-4 md:col-span-7 flex flex-col justify-center pt-8 md:pt-0 md:pl-8">
+          <Pupa
+            className="md:hidden absolute top-24 -right-5 h-[400px] w-auto max-w-none opacity-60 pointer-events-none z-0"
+          />
+
+          <span className="relative z-10 font-mono text-label text-terracotta tracking-[0.25em] mb-6 block uppercase">
             Quem eu sou
           </span>
 
-          <h2 className="font-display text-olive text-[40px] md:text-[56px] leading-[1.1] tracking-tight text-balance max-w-2xl mb-10">
+          <h2 className="relative z-10 font-display text-olive text-[40px] md:text-[56px] leading-[1.1] tracking-tight text-balance max-w-2xl mb-10">
             Arquitetura como <em className="italic">direito</em>, acolhimento como método
           </h2>
 
